@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sign in to MyAPL to manage shipments and logistics services.">
+  <title>MyAPL | Sign in</title>
+  <link rel="icon" href="/assets/apl-logo.png" type="image/png">
+  <link rel="stylesheet" href="/assets/apl-ui.css?v=3">
+</head>
+<body class="apl-auth-page">
+  <main class="apl-auth-shell">
+    <div class="apl-auth-grid" aria-hidden="true"></div>
+    <a class="apl-auth-home" href="/index.html" aria-label="Back to APL home">
+      <img src="/assets/apl-logo.png" alt="APL">
+      <span>Back to home</span>
+    </a>
+    <div class="apl-auth-card-wrap">
+      <section class="apl-auth-card" aria-labelledby="sign-in-title">
+        <header class="apl-auth-header">
+          <img class="apl-auth-logo" src="/assets/apl-logo.png" alt="APL">
+          <h1 id="sign-in-title">Welcome back</h1>
+          <p id="apl-auth-subtitle">Sign in to continue to MyAPL</p>
+        </header>
+        <form id="apl-sign-in-form">
+          <div class="apl-auth-field">
+            <label for="email">Email address</label>
+            <svg class="apl-auth-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="m4 7 8 6 8-6"/></svg>
+            <input class="apl-auth-input" id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="apl-auth-field">
+            <label for="password">Password</label>
+            <svg class="apl-auth-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+            <input class="apl-auth-input" id="password" name="password" type="password" autocomplete="current-password" required minlength="6">
+            <button class="apl-password-toggle" type="button" aria-label="Show password" aria-pressed="false">
+              <svg viewBox="0 0 24 24" width="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/></svg>
+            </button>
+          </div>
+          <div class="apl-auth-options">
+            <label class="apl-auth-check"><input name="remember" type="checkbox"> Remember me</label>
+            <button class="apl-auth-link" id="apl-forgot-password" type="button">Forgot password?</button>
+          </div>
+          <button class="apl-auth-submit" type="submit"><span>Sign in</span><span aria-hidden="true">→</span></button>
+          <div class="apl-auth-divider">or</div>
+          <button class="apl-auth-google" id="apl-google-sign-in" type="button"><strong>G</strong> Sign in with Google</button>
+          <p class="apl-auth-footer"><span id="apl-auth-mode-copy">Don’t have an account?</span> <button class="apl-auth-link" id="apl-auth-mode" type="button">Create one</button></p>
+          <p class="apl-auth-status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="/assets/apl-auth.js"></script>
+</body>
+</html>
