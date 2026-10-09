@@ -33,13 +33,13 @@ Then open [http://localhost:8000/](http://localhost:8000/).
 
 ## Supabase authentication
 
-The browser client uses a Supabase publishable key. To make Google sign-in work, enable the Google provider in the Supabase dashboard and configure the Google OAuth client with this callback URL:
+The browser client uses a Supabase publishable key. Google sign-in is configured through the Supabase Google provider and a Google OAuth web client with this callback URL:
 
 ```text
 https://oyzyeifwtbzyxyukvgia.supabase.co/auth/v1/callback
 ```
 
-Add the deployed site URL and `http://localhost:8000/sign-in.html` to the allowed redirect URLs in Supabase Authentication settings.
+The allowed Supabase redirects are `http://localhost:8000/sign-in.html` and `https://giridhar9696.github.io/Dc-/sign-in.html`.
 
 Never commit a Supabase service-role key or a Google OAuth client secret.
 

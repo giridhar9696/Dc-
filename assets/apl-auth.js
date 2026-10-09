@@ -29,6 +29,7 @@ const supabase = createClient(
   'sb_publishable__K8MPJ_kFlyRhPzS___wOQ_NM3xuxMK',
   { auth: { storage: authStorage, persistSession: true, autoRefreshToken: true, detectSessionInUrl: true } }
 );
+const authRedirectUrl = new URL('sign-in.html', location.href).href;
 
 const setStatus = (message, state = '') => {
   status.textContent = message;
@@ -79,7 +80,7 @@ document.querySelector('#apl-forgot-password').addEventListener('click', async (
   if (!email.reportValidity()) return;
   setStatus('Sending password reset link…');
   const { error } = await supabase.auth.resetPasswordForEmail(email.value.trim(), {
-    redirectTo: `${location.origin}/sign-in.html`
+    redirectTo: authRedirectUrl
   });
   setStatus(error ? error.message : 'Check your email for the password reset link.', error ? 'error' : 'success');
 });
@@ -88,7 +89,7 @@ document.querySelector('#apl-google-sign-in').addEventListener('click', async ()
   setStatus('Opening Google sign-in…');
   const { error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
-    options: { redirectTo: `${location.origin}/sign-in.html` }
+    options: { redirectTo: authRedirectUrl }
   });
   if (error) setStatus(error.message, 'error');
 });
@@ -104,7 +105,7 @@ form.addEventListener('submit', async (event) => {
   const { data, error } = signingUp
     ? await supabase.auth.signUp({
         ...credentials,
-        options: { emailRedirectTo: `${location.origin}/sign-in.html` }
+        options: { emailRedirectTo: authRedirectUrl }
       })
     : await supabase.auth.signInWithPassword(credentials);
 
