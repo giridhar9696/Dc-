@@ -30,6 +30,7 @@ const supabase = createClient(
   { auth: { storage: authStorage, persistSession: true, autoRefreshToken: true, detectSessionInUrl: true } }
 );
 const authRedirectUrl = new URL('sign-in.html', location.href).href;
+const homeUrl = new URL('index.html', location.href).href;
 
 const setStatus = (message, state = '') => {
   status.textContent = message;
@@ -121,8 +122,9 @@ form.addEventListener('submit', async (event) => {
   }
 
   setStatus(`Signed in as ${data.user.email}.`, 'success');
+  location.replace(homeUrl);
 });
 
 supabase.auth.getSession().then(({ data }) => {
-  if (data.session?.user?.email) setStatus(`Signed in as ${data.session.user.email}.`, 'success');
+  if (data.session?.user?.email) location.replace(homeUrl);
 });
